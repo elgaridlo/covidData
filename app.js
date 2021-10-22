@@ -21,7 +21,7 @@ app.use(express.json())
 app.use('/api/covid', covidRoute)
 
 app.use('/api/covidNow', currentCovidRoute)
-cron.scheduleJob('*/1 * * * *', () => {
+cron.scheduleJob('45 11 * * *', () => {
     axios.post('http://localhost:5000/api/covidNow').then((res) => {
         console.log('response = ', res.data)
     })
